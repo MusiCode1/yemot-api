@@ -4,7 +4,7 @@ const yemot_api = require("./");
 
 	const y = new yemot_api();
 
-	await y.connect("0772221222", "659841");
+	await y.connect("0773137770", "1234");
 
 	let r;
 
