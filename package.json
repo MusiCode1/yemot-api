@@ -1,0 +1,22 @@
+{
+  "name": "yemot-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MusiCode1/yemot-api.git"
+  },
+  "keywords": [
+    "yemot"
+  ],
+  "author": "musicode1 <musicode3@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MusiCode1/yemot-api/issues"
+  },
+  "homepage": "https://github.com/MusiCode1/yemot-api#readme"
+}
