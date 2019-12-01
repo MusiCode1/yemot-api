@@ -11,9 +11,7 @@ const yemot_api = require("yemot-api");
 
 (async () => {
 
-	const y = new yemot_api();
-
-	await y.connect("0773137770", "1234");
+	const y = new yemot_api("0773137770", "1234");
 
 	let r;
 
