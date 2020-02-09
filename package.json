@@ -21,8 +21,6 @@
   "homepage": "https://github.com/MusiCode1/yemot-api#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "form-data": "^3.0.0",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.8"
+    "form-data": "^3.0.0"
   }
 }
