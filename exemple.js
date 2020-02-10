@@ -2,7 +2,7 @@ const yemot_api = require("./");
 
 (async () => {
 
-	const y = new yemot_api("0772221222", "0000");
+	const y = new yemot_api("0799300400", "887371");
 
 	/** קבלת מספר יחידות */
 	let r = await y.exec("GetSession");
@@ -28,7 +28,7 @@ const yemot_api = require("./");
 
 	/** הורדת קובץ */
 	o = {
-		path: "ivr/123.txt1"
+		path: "ivr/123.txt"
 	};
 
 	try {
