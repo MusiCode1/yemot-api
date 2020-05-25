@@ -2,7 +2,7 @@ const yemot_api = require("./");
 
 (async () => {
 
-	const y = new yemot_api("0799300400", "887371");
+	const y = new yemot_api("0773137770", "1234");
 
 	/** קבלת מספר יחידות */
 	let r = await y.exec("GetSession");
