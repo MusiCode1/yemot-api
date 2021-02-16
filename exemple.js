@@ -18,9 +18,7 @@ const yemot_api = require("./");
 		}
 	};
 
-	r = await y.upload_file("ivr/123.txt", file);
-
-	console.log(r);
+	await y.upload_file("ivr/123.txt", file);
 
 	/** הורדת קובץ */
 	try {
@@ -30,5 +28,16 @@ const yemot_api = require("./");
 	}
 
 	console.log(r);
+
+	/** הוספת שלוחה חדשה */
+
+	await y.create_ext("/1", {
+		type: "menu",
+		white_list: "yes"
+	});
+
+	await y.upload_txt_file(str_path + "/1/WhiteList.ini", [
+        "0773137770"
+    ]);
 
 })();
