@@ -13,36 +13,30 @@ const yemot_api = require("yemot-api");
 
 	const y = new yemot_api("0773137770", "1234");
 
-	let r;
-
 	/** קבלת מספר יחידות */
-	r = await y.exec("GetSession");
+	let r = await y.get_session();
 
 	console.log(r);
 
 	/** העלאת קובץ */
-	let o = {
-
-		file: {
-			value: "12345",
-			options: {
-				filename: "123.txt",
-				contentType: "text/txt"
-			}
-		},
-		path: "ivr/123.txt"
+	const file = {
+		value: "12345",
+		options: {
+			filename: "123.txt",
+			contentType: "text/txt"
+		}
 	};
 
-	r = await y.exec("UploadFile", o);
+	r = await y.upload_file("ivr/123.txt", file);
 
 	console.log(r);
 
 	/** הורדת קובץ */
-	o = {
-		path: "ivr/123.txt"
-	};
-
-	r = await y.exec("DownloadFile", o);
+	try {
+		r = await y.download_file("ivr/123.txt");
+	} catch (error) {
+		console.error(error);
+	}
 
 	console.log(r);
 
