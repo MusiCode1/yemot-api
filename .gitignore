@@ -2,3 +2,4 @@ node_modules/
 *.code-workspace
 .vscode
 test.js
+YmApi.js
