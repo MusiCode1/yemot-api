@@ -1,43 +1,64 @@
-const yemot_api = require("./");
+require("dotenv").config();
+const { YemotApi, FileForUpload } = require("./dist/index");
 
 (async () => {
 
-	const y = new yemot_api("0773137770", "1234");
+	const username = process.env.JS_USERNAME;
+	const password = process.env.JS_PASSWORD;
+
+
+	const client = new YemotApi(username, password);
 
 	/** קבלת מספר יחידות */
-	let r = await y.get_session();
+	let r = await client.get_session();
 
-	console.log(r);
+	console.log(client.token);
+
+	const from = new Date();
+	from.setDate(1);
+	const to = new Date();
+
+	r = await client.get_incoming_sum(
+		from.toISOString().split("T")[0],
+		to.toISOString().split("T")[0],
+	);
+
+	console.log(r.data);
 
 	/** העלאת קובץ */
-	const file = {
-		value: "12345",
-		options: {
-			filename: "123.txt",
-			contentType: "text/txt"
-		}
-	};
+	const file = new FileForUpload({
+		file_name: "123.txt",
+		data: "12345",
+		content_type: "text/txt"
+	});
 
-	await y.upload_file("ivr/123.txt", file);
+	r = await client.upload_file("ivr/123.txt", file);
 
 	/** הורדת קובץ */
 	try {
-		r = await y.download_file("ivr/123.txt");
+		r = await client.download_file("ivr/123.txt");
 	} catch (error) {
 		console.error(error);
 	}
 
-	console.log(r);
+	console.log(r.data.toString());
 
 	/** הוספת שלוחה חדשה */
 
-	await y.create_ext("/1", {
+	r = await client.create_ext("/98", {
 		type: "menu",
 		white_list: "yes"
 	});
 
-	await y.upload_txt_file(str_path + "/1/WhiteList.ini", [
-        "0773137770"
-    ]);
+	/** העלאת קובץ ini */
+	r = await client.upload_ini_file("/98/ext.ini", {
+		type: "playfile"
+	});
+
+	/** העלאת קובץ טקסט */
+	r = await client.upload_txt_file(
+		"/98/WhiteList.ini",  
+		"0773137770"
+	);
 
 })();
