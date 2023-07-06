@@ -1,6 +1,6 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "commonjs": true,
         "es6": true
     },
@@ -10,7 +10,7 @@
         "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": "latest"
     },
     "rules": {
         "indent": [

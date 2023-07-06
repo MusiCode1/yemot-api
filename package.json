@@ -20,8 +20,15 @@
   },
   "homepage": "https://github.com/MusiCode1/yemot-api#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "form-data": "^3.0.0",
-    "qs": "^6.9.1"
+    "axios": "^0.21.4",
+    "form-data": "^3.0.1",
+    "qs": "^6.11.2",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.3",
+    "@types/qs": "^6.9.7",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.44.0"
   }
 }

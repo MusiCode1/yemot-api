@@ -1,0 +1,106 @@
+import type { AxiosResponse } from 'axios';
+type method =
+    "Login" |
+    "Logout" |
+    "GetSession" |
+    "SetPassword" |
+
+    "RunCampaign" |
+    "GetCampaignStatus" |
+    "GetActiveCampaigns" |
+    "CampaignAction" |
+    "DownloadCampaignReport" |
+
+    "GetTemplates" |
+    "CreateTemplate" |
+    "DeleteTemplate" |
+    "UpdateTemplate" |
+    "GetTemplateEntries" |
+    "ClearTemplateEntries" |
+    "UpdateTemplateEntries" |
+    "UpdateTemplateEntry" |
+
+    "TransferUnits" |
+    "GetTransactions" |
+
+    "UploadPhoneList" |
+    "ScheduleCampaign" |
+    "GetScheduledCampaigns" |
+    "DeleteScheduledCampaign" |
+    "FileAction" |
+    "UpdateExtension" |
+    "UploadFile" |
+    "DownloadFile" |
+    "GetIvrTree" |
+    "GetIncomingCalls" |
+    "UploadTextFile" |
+    "GetIVR2Dir" |
+    "GetIncomingSum" |
+    "CheckIfFileExists";
+
+
+export default class Yemot_api {
+    constructor(username: string, password: string, config?: object, ym_server?: "ym")
+
+    copy_files(target_path: string, files_path: string): Promise<AxiosResponse>
+
+    move_files(target_path: string, files_path: string): Promise<AxiosResponse>
+
+    delete(target_path: string, files_path: string): Promise<AxiosResponse>
+
+    logout(): Promise<AxiosResponse<void>>
+
+    upload_file(path: string, file, convertAudio: 0 | 1): Promise<AxiosResponse>
+
+    download_file(path: string): Promise<AxiosResponse<Buffer>>
+
+    get_ivr_tree(path: string): Promise<AxiosResponse<{
+        items: Array<{
+            customerDid: string,
+            date: string,
+            duration: number,
+            durationStr: string,
+            exists: true,
+            fileType: string,
+            ip: any,
+            meta: {},
+            mtime: string,
+            name: string,
+            phone: string,
+            size: number,
+            source: string,
+            uniqueId: string,
+            what: string
+        }>,
+        parentPath: string,
+        responseStatus: 'OK',
+        thisPath: string,
+        yemotAPIVersion: number
+    }>>
+
+    get_incoming_calls(): Promise<AxiosResponse<{
+        direct: number,
+        fromDate: string,
+        responseStatus: string,
+        toDate: string,
+        transferIn: number,
+        transferOut: number,
+        yemotAPIVersion: number
+    }>>
+
+    get_session(): Promise<AxiosResponse<{
+        username: string,
+        units: number,
+        unitsExpireDate: string
+    }>>
+
+    run_campaign(template_id: number, phones: boolean, caller_id: boolean): Promise<AxiosResponse>
+
+    upload_ini_file(path: string, ini_settings_obj: object): Promise<AxiosResponse>
+
+    exec(method: method, parameters: {}, options: {}): Promise<AxiosResponse>
+}
+
+export {
+    Yemot_api
+}
