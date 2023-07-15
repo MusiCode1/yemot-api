@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "allowJs": true
+    },
+    "extends": "./tsconfig.json",
+    "include": [
+        "test/**.js"
+    ],
+    "exclude": [
+        "./YmApi.js"
+    ]
+}

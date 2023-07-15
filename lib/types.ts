@@ -1,47 +1,54 @@
-import type { AxiosResponse, AxiosRequestConfig } from "axios";
+import type { AxiosResponse, AxiosRequestConfig } from 'axios'
 
 export type method =
-    "Login" |
-    "Logout" |
-    "GetSession" |
-    "SetPassword" |
+    'Login' |
+    'Logout' |
+    'GetSession' |
+    'SetPassword' |
 
-    "RunCampaign" |
-    "GetCampaignStatus" |
-    "GetActiveCampaigns" |
-    "CampaignAction" |
-    "DownloadCampaignReport" |
+    'RunCampaign' |
+    'GetCampaignStatus' |
+    'GetActiveCampaigns' |
+    'CampaignAction' |
+    'DownloadCampaignReport' |
 
-    "GetTemplates" |
-    "CreateTemplate" |
-    "DeleteTemplate" |
-    "UpdateTemplate" |
-    "GetTemplateEntries" |
-    "ClearTemplateEntries" |
-    "UpdateTemplateEntries" |
-    "UpdateTemplateEntry" |
+    'GetTemplates' |
+    'CreateTemplate' |
+    'DeleteTemplate' |
+    'UpdateTemplate' |
+    'GetTemplateEntries' |
+    'ClearTemplateEntries' |
+    'UpdateTemplateEntries' |
+    'UpdateTemplateEntry' |
 
-    "TransferUnits" |
-    "GetTransactions" |
+    'TransferUnits' |
+    'GetTransactions' |
 
-    "UploadPhoneList" |
-    "ScheduleCampaign" |
-    "GetScheduledCampaigns" |
-    "DeleteScheduledCampaign" |
-    "FileAction" |
-    "UpdateExtension" |
-    "UploadFile" |
-    "DownloadFile" |
-    "GetIvrTree" |
-    "GetIncomingCalls" |
-    "UploadTextFile" |
-    "GetIVR2Dir" |
-    "GetIncomingSum";
+    'UploadPhoneList' |
+    'ScheduleCampaign' |
+    'GetScheduledCampaigns' |
+    'DeleteScheduledCampaign' |
+    'FileAction' |
+    'UpdateExtension' |
+    'UploadFile' |
+    'DownloadFile' |
+    'GetIvrTree' |
+    'GetIncomingCalls' |
+    'UploadTextFile' |
+    'GetIVR2Dir' |
+    'GetIncomingSum'
 
 export interface YemotApiError extends Error {
-    response: AxiosResponse
-    request: any
-    config: AxiosRequestConfig
+  response: AxiosResponse
+  request: any
+  config: AxiosRequestConfig
 }
 
-export type string_object = { [key: string]: any };
+export type string_object = Record<string, any>
+
+export type success_obj = {
+  yemotAPIVersion: 6,
+  responseStatus: "OK"
+};
+
+export type stdr_return = Promise<AxiosResponse<success_obj>>;

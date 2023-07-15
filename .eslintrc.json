@@ -1,34 +1,42 @@
 {
     "env": {
-        "node": true,
-        "commonjs": true,
-        "es6": true
+       "node": true,
+        "es2021": true,
+        "jest": true
     },
-    "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+    "extends": [
+       /*  "standard-with-typescript", */
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json",
+            "./tsconfig.eslint.json"
+        ]
     },
+    
     "rules": {
-        "indent": [
+/*         "indent": [
             "error",
-			"tab",
-			{ "SwitchCase": 1 }
+            "tab",
+            {
+                "SwitchCase": 1
+            }
         ],
         "linebreak-style": [
             "error",
             "windows"
         ],
         "quotes": [
-            "error",
-            "double"
+            "warn",
+            "single"
         ],
         "semi": [
             "error",
             "always"
-        ]
+        ] */
     }
 }
