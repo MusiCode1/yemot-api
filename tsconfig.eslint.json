@@ -4,7 +4,9 @@
     },
     "extends": "./tsconfig.json",
     "include": [
-        "test/**.js"
+        "test/**.js",
+        "./*.js",
+        "./*.mjs"
     ],
     "exclude": [
         "./YmApi.js"

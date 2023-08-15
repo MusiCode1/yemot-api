@@ -135,5 +135,6 @@ export class YemotApi extends BaseYemotApi {
     if (!path.startsWith('ivr2:')) {
       return 'ivr2:' + path
     }
+    return path;
   }
 }

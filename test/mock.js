@@ -45,5 +45,26 @@ export const mocks = () => {
         ...standard_success_object
     });
 
+    mockAxios.onPost(BASE_URL + "GetIncomingCalls").reply(200, {
+
+        calls: [{
+            did
+            callerIdNum
+            duration
+            transferFrom
+            id
+            path
+
+          from: '0521234567',
+          to: '0771234567',
+          date: '2023-02-01 12:34:56' 
+        }],
+
+        callsCount: 2
+      
+        ...standard_success_object
+      
+      });
+
 
 };

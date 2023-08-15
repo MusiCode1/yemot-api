@@ -1,5 +1,5 @@
-require("dotenv").config();
-const { YemotApi, FileForUpload } = require("./dist/index");
+import "dotenv/config"
+import { YemotApi, FileForUpload } from "./dist/index.js"
 
 (async () => {
 
@@ -57,7 +57,7 @@ const { YemotApi, FileForUpload } = require("./dist/index");
 
 	/** העלאת קובץ טקסט */
 	r = await client.upload_txt_file(
-		"/98/WhiteList.ini",  
+		"/98/WhiteList.ini",
 		"0773137770"
 	);
 
